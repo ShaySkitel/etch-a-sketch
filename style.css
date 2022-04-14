@@ -28,6 +28,10 @@ main {
     background-color: gray;
 }
 
+.square.painted {
+    background-color: black;
+}
+
 #etch {
     display: flex;
     flex-wrap: wrap;
