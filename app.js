@@ -27,7 +27,14 @@ clearBtn.addEventListener("click", () => {
     }
 
     const newBoardSize = +prompt("Select a board size", 16);
-    amountOfSquares = newBoardSize;
+
+    // Create 16 creates if the user gave invalid size
+    if (typeof newBoardSize !== "number" || newBoardSize < 1) {
+        amountOfSquares = 16;
+        // Otherwise, generate a board using the user's input
+    } else {
+        amountOfSquares = newBoardSize;
+    }
 
     // Create new squares
     generateBoard();
