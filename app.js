@@ -1,4 +1,5 @@
 const board = document.querySelector("#etch");
+const clearBtn = document.querySelector("#etch-ui button")
 const boardSize = 16;
 
 for (let i = 0; i < boardSize * boardSize; i++) {
@@ -11,3 +12,11 @@ for (let i = 0; i < boardSize * boardSize; i++) {
         this.classList.add("painted");
     });
 }
+
+clearBtn.addEventListener("click", () => {
+    const allSquares = document.querySelectorAll(".square");
+
+    for (const square of allSquares) {
+        square.classList = "square";
+    }
+});
