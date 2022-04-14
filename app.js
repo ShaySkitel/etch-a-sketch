@@ -1,22 +1,36 @@
 const board = document.querySelector("#etch");
 const clearBtn = document.querySelector("#etch-ui button")
-const boardSize = 16;
+const boardWidth = 480;
+let amountOfSquares = 16;
 
-for (let i = 0; i < boardSize * boardSize; i++) {
-    const newSquare = document.createElement("div");
-    newSquare.classList.add("square");
-    board.appendChild(newSquare);
+function generateBoard() {
+    for (let i = 0; i < amountOfSquares * amountOfSquares; i++) {
+        const widthHeight = boardWidth / amountOfSquares;
+        const newSquare = document.createElement("div");
+        newSquare.classList.add("square");
+        newSquare.style.cssText = `width: ${widthHeight}px; height: ${widthHeight}px`;
+        board.appendChild(newSquare);
 
-    // Add event listener to all squares on mouse enter
-    newSquare.addEventListener("mouseenter", function () {
-        this.classList.add("painted");
-    });
+        // Add event listener to all squares on mouse enter
+        newSquare.addEventListener("mouseenter", function () {
+            this.classList.add("painted");
+        });
+    }
 }
 
 clearBtn.addEventListener("click", () => {
     const allSquares = document.querySelectorAll(".square");
 
+    // Remove existing squares on the grid
     for (const square of allSquares) {
-        square.classList = "square";
+        square.remove();
     }
+
+    const newBoardSize = +prompt("Select a board size", 16);
+    amountOfSquares = newBoardSize;
+
+    // Create new squares
+    generateBoard();
 });
+
+generateBoard();

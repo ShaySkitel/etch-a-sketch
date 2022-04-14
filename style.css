@@ -24,9 +24,8 @@ main {
 }
 
 .square {
-    width: 30px;
-    height: 30px;
     background-color: gray;
+    outline: 0.1px solid rgb(110, 110, 110);
 }
 
 .square.painted {
@@ -37,5 +36,6 @@ main {
     display: flex;
     flex-wrap: wrap;
     margin-top: 1em;
-    width: calc(30px * 16);
+    width: 480px;
+    max-height: 480px;
 }
