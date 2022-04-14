@@ -18,6 +18,7 @@ main {
     width: 100%;
     height: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
@@ -35,5 +36,6 @@ main {
 #etch {
     display: flex;
     flex-wrap: wrap;
+    margin-top: 1em;
     width: calc(30px * 16);
 }
